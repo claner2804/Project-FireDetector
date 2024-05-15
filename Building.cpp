@@ -99,8 +99,13 @@ void Building::checkSensors() {
 
         std::cout << "-----> Iteration " << i << std::endl;
 
+        // Check if the sensor exists
+if(!sensors.empty()) {
+std::cout << "mindestens ein Sensor vorhanden - es wird checkt... " << std::endl;
         // Iterate through all floors
         for (auto &floor: sensors) {
+
+
             // Iterate through all sensors on the floor
             for (auto it = floor.second.begin(); it != floor.second.end(); /* no increment here */) {
                 // Check the sensor
@@ -133,6 +138,11 @@ void Building::checkSensors() {
         // Sleep for one second
         sleep(1);
 
+    }
+    else {
+        std::cout << "Keine Sensoren mehr vorhanden" << std::endl;
+        break;
+    }
     }
 
 }
