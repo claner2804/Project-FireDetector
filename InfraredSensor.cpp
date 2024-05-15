@@ -25,3 +25,25 @@ bool InfraredSensor::isDefect() {
 int InfraredSensor::getType() {
     return 2;
 }
+
+void InfraredSensor::checkSensor() {
+    if (isFire()) {
+        throw FireDetectedException("InfraredSensor::checkSensor - FEUUUERRRRR!!!!");
+    }
+    if (isDefect()) {
+        throw ErrorDetectedException("InfraredSensor::checkSensor - Fehler - Hausmeister wird benachrichtigt");
+    }
+    else {
+        std::cout << "InfraredSensor::checkSensor - alles ok" << std::endl;
+    }
+}
+
+InfraredSensor::InfraredSensor() {
+    std::cout << "InfraredSensor montiert" << std::endl;
+
+}
+
+InfraredSensor::~InfraredSensor() {
+    std::cout << "InfraredSensor wird abmontiert!" << std::endl;
+
+}

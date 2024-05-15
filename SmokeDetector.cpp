@@ -11,7 +11,7 @@ int SmokeDetector::getType() {
 bool SmokeDetector::isFire() {
     //Entdeckt mit einer Wahrscheinlichkeit von 3% Feuer
     if (rand() % 100 < 3) {
-        throw FireDetectedException();
+        return true;
     } else {
         return false;
     }
@@ -24,4 +24,26 @@ bool SmokeDetector::isDefect() {
     } else {
         return false;
     }
+}
+
+void SmokeDetector::checkSensor() {
+    if (isFire()) {
+        throw FireDetectedException("SmokeDetector::checkSensor - FEUERRRRRRR!");
+    }
+    if (isDefect()) {
+        throw ErrorDetectedException("SmokeDetector::checkSensor - Fehler - Hausmeister wird benachrichtigt!");
+    }
+    else {
+        std::cout << "SmokeDetector::checkSensor - alles ok" << std::endl;
+    }
+}
+
+SmokeDetector::SmokeDetector() {
+    std::cout << "SmokeDetector angebracht" << std::endl;
+
+}
+
+SmokeDetector::~SmokeDetector() {
+    std::cout << "SmokeDetector wird abmontiert!" << std::endl;
+
 }

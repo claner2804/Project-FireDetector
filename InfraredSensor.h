@@ -29,7 +29,7 @@ public:
 
     bool isDefect() override;
 
-    //std::string getName() override;
+    void checkSensor() override;
 
 
 };

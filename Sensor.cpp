@@ -3,3 +3,7 @@
 //
 
 #include "Sensor.h"
+#include <unistd.h>
+
+
+//sleep(1);

@@ -24,5 +24,23 @@ public:
 };
 
 
+class ErrorDetectedException   : public FireException {
+public:
+    explicit ErrorDetectedException (const std::string& message) : FireException(message) {}
+
+};
+
+class InvalidFloorException : public FireException {
+public:
+    explicit InvalidFloorException(const std::string& message) : FireException(message) {}
+};
+
+class InvalidSensorException : public FireException {
+public:
+    explicit InvalidSensorException(const std::string& message) : FireException(message) {}
+};
+
+
+
 
 #endif //BRANDMELDER_EXCEPTIONS_H

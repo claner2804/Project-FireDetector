@@ -6,9 +6,9 @@
 #include <iostream>
 
 void Siren::switchOn() {
-    std::cout << "Siren switched on" << std::endl;
+    std::cout << "-----SIRENE: ALARM ALARRRMMM FEUEEERRRR ALARRMMMMM------- " << std::endl;
 }
 
 void Siren::switchOff() {
-    std::cout << "Siren switched off" << std::endl;
+    std::cout << "----- Sirene aus -------" << std::endl;
 }

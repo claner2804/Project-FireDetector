@@ -36,16 +36,30 @@ Brände zu erkennen und darauf zu reagieren.
 
 class Building {
 
-    //Datencontainer für Sensoren, Map weil ID
+protected:
+    // Datencontainer für Sensoren, doppelte map
+    /*Die äußere std::map repräsentiert die Stockwerke
+     * (mit der Stockwerksnummer als Schlüssel), und die innere std::map
+     * repräsentiert die Sensoren innerhalb eines Stockwerks
+     * (mit der Sensor-ID als Schlüssel). Diese Struktur ermöglicht es
+     * Ihnen, für jedes Stockwerk einen eigenen Datencontainer zu haben,
+     * wie in der Anforderung vorgeschlagen. Sie können Sensoren hinzufügen,
+     * abrufen und löschen, indem Sie auf den entsprechenden Stockwerk-
+     * und Sensor-Schlüssel zugreifen.*/
     std::map<int, std::map<int, Sensor*>> sensors;
 
-    //Anzahl der Stockwerke
+    // Anzahl der Stockwerke
     int floors;
 
-    //Sirene pro Stockwerk
-    Siren sirens[10];
+
+    // eine Sirene pro Stockwerk
+    std::map<int, Siren> sirens;
+
 
 public:
+    //Aussensirene
+    Siren AussenSirene;
+
 
     //Konstruktor, dem die Anzahl der Stockwerke übergeben wird.
     Building(int floors);
@@ -80,6 +94,7 @@ public:
 
 
 };
+
 
 
 #endif //BRANDMELDER_BUILDING_H

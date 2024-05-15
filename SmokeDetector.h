@@ -28,6 +28,8 @@ public:
 
     bool isDefect() override;
 
+    void checkSensor() override;
+
 
     //std::string getName() override;
 
